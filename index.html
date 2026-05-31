@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="fr">
+<!--//declare la langue française//--> 
+<html lang="fr">    
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Nina Carducci - Photographe portraits & événementiel à Bordeaux</title>
-	<meta name="description" content="Nina Carducci, photographe professionnelle à Bordeaux. Spécialisée dans les portraits, mariages, concerts et événements d'entreprise. Devis gratuit.">
+	<!-- //balise titre maintenant afficher dans le resultat de recherche et navigateur//-->
+	<title>Nina Carducci - Photographe portraits & événementiel à Bordeaux</title>      
+	<meta name="description" content="Nina Carducci, photographe professionnelle à Bordeaux. Spécialisée dans les portraits, mariages, concerts et événements d'entreprise. Devis gratuit.">  <!--balise meta maintenant deux texte apparaissent dans les resultat google-->
 	<!-- Preconnect pour les fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-	<!-- Préchargement de l'image LCP (1ère image du slider) -->
+	<!-- Préchargement de l'image LCP (1ère image du slider) //premiére image visible dés l'ouverture du site //-->  
 	<link rel="preload" as="image" href="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash.webp" fetchpriority="high">
 
-	<!-- CSS critique inline pour éviter le render-blocking -->
+	<!-- CSS critique inline pour éviter le render-blocking injection des stles indispensables a ffichage directement dans html-->
 	<style>
 		body{max-width:1920px;margin:auto}
 		*{font-family:'Inter',sans-serif;font-style:normal}
@@ -66,7 +68,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap&font-display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 	<noscript><link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap&font-display=swap" rel="stylesheet"></noscript>
 
-	<!-- OpenGraph / Facebook -->
+	<!-- OpenGraph / Facebook desomais affiche aperçu,titres,images et descriptions sur les plaateforme partage social-->
 	<meta property="og:title" content="Nina Carducci - Photographe portraits & événementiel à Bordeaux">
 	<meta property="og:description" content="Photographe professionnelle à Bordeaux. Portraits, mariages, concerts, entreprises. Contactez-moi pour un devis.">
 	<meta property="og:type" content="website">
@@ -80,7 +82,7 @@
 	<meta name="twitter:description" content="Photographe professionnelle à Bordeaux. Portraits, mariages, concerts, entreprises.">
 	<meta name="twitter:image" content="https://ninacarducci.github.io/assets/images/nina.webp">
 
-	<!-- Schema.org LocalBusiness -->
+	<!-- Schema.org LocalBusiness -- block JSON-LD google affiche des informations enrichies dans les resultat de recherche (commerce local)-->
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
@@ -111,24 +113,26 @@
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" defer></script>
 	<script src="./assets/bootstrap/bootstrap.bundle.min.js" defer></script>
-	<script src="./assets/maugallery.min.js" defer></script>
-	<script src="./assets/scripts.min.js" defer></script>
+	<script src="./assets/maugallery.min.js" defer></script> <!--bibliotheque tiers  plugin autonome (c'est lui qui fait tout le travail)--> 
+	<script src="./assets/scripts.min.js" defer></script>   <!--fichier minifié chef d'orchestre -->
 </head>
 <body>
 <header class="top-header">
-	<h1 class="name">Nina Carducci, Photographe</h1>
+	<!-- remplacement des balises div par les balise correspondantes à chaque rôles-->
+	<h1 class="name">Nina Carducci, Photographe</h1>	
 	<nav class="nav">
 		<ul>
 			<li><a href="#about">À propos</a></li>
 			<li><a href="#gallery">Galerie</a></li>
 			<li><a href="#services">Service</a></li>
 			<li><a href="#contact">Contact</a></li>
+			<!--ajout de "noopener" empêche l'accés a la page d'origine via js faille de sécurité réglé-->
 			<li><a class="social-link" href="https://www.instagram.com/ninacarducci.photo/?hl=fr" target="_blank" rel="noopener" aria-label="Voir le profil Instagram de Nina Carducci"><img src="assets/images/instagram.png" alt="Instagram" width="20" height="20"></a></li>
 		</ul>
 	</nav>
 </header>
 
-<main>
+<main>      <!--avant suivant et précedent été invisible en injectant aria-label nous remedions a ce bug-->
 	<section id="header" aria-label="Diaporama de photos">
 		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-indicators">
@@ -136,8 +140,11 @@
 				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
 				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
 			</div>
-			<div class="carousel-inner" style="min-height:500px;">
-				<div class="carousel-item active">
+			 <!--ajout de alt et d'une description a chaque image mis au format webp j'ai a jouté la width et la height resultat verification que l'image sera au bonne dimension et reserve la place quan d l'image arrive
+			j'ai appliqué lazy loading seules les images visible a l'ecran se charge directement et lazy loading est injecté à toutes les images sauf la premiére -->
+			 <div class="carousel-inner" style="min-height:500px;">
+				<div class="carousel-item active">     
+					
 					<img src="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash.webp" class="d-block w-100" alt="Homme en costume traversant un passage piéton" style="aspect-ratio:1400/933;width:100%;height:auto;" width="1400" height="933" fetchpriority="high">
 				</div>
 				<div class="carousel-item">
@@ -147,6 +154,7 @@
 					<img src="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash.webp" class="d-block w-100" alt="Couple de mariés s'embrassant sous une arche fleurie" width="1400" height="933" loading="lazy">
 				</div>
 			</div>
+			<!-- il y avait une icone graphique dépassé le lecteur ne lisait rien j'ai ajouter la balise visually-hidden du fichier bootstrap desormais le caroussel est fonctionnel -->
 			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Précédent</span>
@@ -169,7 +177,7 @@
 				C'est ce que je vous propose : saisir ces merveilleux moments au travers de mon regard, mon approche, ma technique. Rendre ces moments immortels, afin que vous puissiez y puiser de l'amour, du bonheur, de la tendresse et de lumière à chaque fois que vous poserez les yeux sur vos photos.</p>
 		</div>
 	</section>
-
+            <!--ajout de description a chaque image mis au format webp-->
 	<section id="gallery">
 		<h2 class="title">Portfolio</h2>
 		<div class="container py-3">
@@ -187,10 +195,13 @@
 		</div>
 		<div class="quote">
 			<figure>
+				<!-- citation de Richard Avedon -->
 				<blockquote>
 					<p class="quote__text">Un portrait n'est pas une ressemblance. Dès lors qu'une émotion ou qu'un fait est traduit en photo, il cesse d'être un fait pour devenir une opinion. L'inexactitude n'existe pas en photographie. Toutes les photos sont exactes. Aucune d'elles n'est la vérité.</p>
-				</blockquote>
-				<figcaption class="quote__author">- Richard Avedon</figcaption>
+				</blockquote> 
+				<!--fin de citation-->
+				<!--affiche auteur de la citation -->
+				<figcaption class="quote__author">- Richard Avedon</figcaption>       
 			</figure>
 		</div>
 	</section>
@@ -239,7 +250,7 @@
 			<figcaption class="quote__author">- Richard Avedon</figcaption>
 		</figure>
 	</div>
-
+            <!--formulaire contact ajout de for=id sur chaque <label>  le lecteur sait desormais a quoi correspond chaque champ-->
 	<section id="contact">
 		<div class="container">
 			<div class="form-container">
